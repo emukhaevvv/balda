@@ -1,5 +1,24 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { customAlphabet } from 'nanoid';
 	import Input from './elements/Input.svelte';
+	import { getUserStore } from '../../stores/userStore';
+
+	const { setUserId } = getUserStore();
+
+	onMount(() => {
+		let userId = localStorage.getItem('userId');
+
+		if (!userId) {
+			const nanoid = customAlphabet('1234567890', 10);
+			const id = nanoid();
+
+			localStorage.setItem('userId', id);
+			userId = id;
+		}
+
+		setUserId(userId);
+	});
 </script>
 
 <div class="content">
