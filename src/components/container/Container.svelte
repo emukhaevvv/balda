@@ -5,7 +5,8 @@
 <style>
 	.container {
 		width: 100%;
-		max-width: 1360px;
+		max-width: 1420px;
 		margin: 0 auto;
+		padding: 0 1.875rem;
 	}
 </style>
